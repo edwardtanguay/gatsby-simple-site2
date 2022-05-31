@@ -2,7 +2,7 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
 
-const Header = ({ siteTitle }) => (
+const Header = ({ siteTitle, siteSubtitle }) => (
   <header
     style={{
       margin: `0 auto`,
@@ -19,7 +19,7 @@ const Header = ({ siteTitle }) => (
         textDecoration: `none`,
       }}
     >
-      {siteTitle}
+      {siteTitle} - {siteSubtitle}
     </Link>
     <img
       alt="Gatsby logo"
