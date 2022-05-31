@@ -1,10 +1,4 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
- */
-
+import { Link } from "gatsby"
 import * as React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
@@ -24,26 +18,38 @@ const Layout = ({ children }) => {
     }
   `)
 
+  const links = [
+    {
+      text: "Welcome",
+      url: "/",
+      badge: false,
+      description:
+        "This is the welcome page",
+    },
+    {
+      text: "Info",
+      url: "/info",
+      badge: false,
+      description:
+        "A simple example of linking to another page within a Gatsby site",
+    },
+  ]
+
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} siteSubtitle={data.site.siteMetadata?.subtitle}/>
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: `var(--size-content)`,
-          padding: `var(--size-gutter)`,
-        }}
-      >
+      <Header
+        siteTitle={data.site.siteMetadata?.title || `Title`}
+        siteSubtitle={data.site.siteMetadata?.subtitle}
+      />
+      <nav>
+        {links.map((link, i) => (
+          <React.Fragment key={link.url}>
+            <Link to={link.url}>{link.text}</Link>
+            {i !== link.length - 1 && <> </>}
+          </React.Fragment>
+        ))}
+      </nav>
         <main>{children}</main>
-        <footer
-          style={{
-            marginTop: `var(--space-5)`,
-            fontSize: `var(--font-sm)`,
-          }}
-        >
-          © {new Date().getFullYear()} &middot; This is just a test site.
-        </footer>
-      </div>
     </>
   )
 }

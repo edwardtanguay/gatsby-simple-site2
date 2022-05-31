@@ -1,5 +1,4 @@
 import * as React from "react"
-import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -7,10 +6,8 @@ import Seo from "../components/seo"
 const InfoPage = () => (
   <Layout>
     <Seo title="Page two" />
-    <h1>Hi from the info page</h1>
-    <p>Welcome to page 2</p>
-    <Link to="/">Go back to the homepage</Link>
-    <hr/>
+    <h1>Info Page</h1>
+    <p>Welcome to the info page</p>
   </Layout>
 )
 
